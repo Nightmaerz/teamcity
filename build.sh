@@ -6,9 +6,9 @@ echo "Attempting to build asdf1234 for Windows"
   -batchmode \
   -nographics \
   -silent-crashes \
-  -logFile $(pwd)/unitywindows.log \
-  -projectPath="$(pwd)/asdf1234" \
-  -buildWindowsPlayer "$(pwd)/windows/windows.exe"  \
+  -logFile $(pwd)/build/unitywindows.log \
+  -projectPath="$(pwd)/Unityproject" \
+  -buildWindowsPlayer "$(pwd)/build/windows/windows.exe"  \
   -quit
 
 #echo "Attempting to build $project for OS X"
@@ -26,18 +26,18 @@ echo "Attempting to build asdf1234 for Linux"
   -batchmode \
   -nographics \
   -silent-crashes \
-  -logFile $(pwd)/unitylinux.log \
-  -projectPath="$(pwd)/asdf1234" \
-  -buildLinuxUniversalPlayer "$(pwd)/linux/linux" \
+  -logFile $(pwd)/build/unitylinux.log \
+  -projectPath="$(pwd)/build/Unityproject" \
+  -buildLinuxUniversalPlayer "$(pwd)/build/linux/linux" \
   -quit
 
 echo 'Logs from build'
-cat $(pwd)/unitylinux.log
-cat $(pwd)/unitywindows.log
+cat $(pwd)/build/unitylinux.log
+cat $(pwd)/build/unitywindows.log
 
 
 echo 'Attempting to zip builds'
 echo $(pwd)
-zip -r $(pwd)/linux.zip $(pwd)/linux
+zip -r $(pwd)/build/linux.zip $(pwd)/build/linux
 #zip -r $(pwd)/asdf/Build/mac.zip $(pwd)/asdf/Build/osx/
-zip -r $(pwd)/windows.zip $(pwd)/windows
+zip -r $(pwd)/build/windows.zip $(pwd)/build/windows
